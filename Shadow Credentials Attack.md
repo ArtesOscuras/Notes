@@ -20,6 +20,7 @@ ____________________________________________________
 ## SHADOW CREDENTIALS ATTACK (old school method, with pywisker):
 
  * REQUIREMENTS: Get pywhisker, "gettgtpkinit.py" and "getnthash.py" from this repositoris:
+   
      https://github.com/ShutdownRepo/pywhisker?tab=readme-ov-file
      https://github.com/dirkjanm/PKINITtools/blob/master/gettgtpkinit.py
      https://github.com/dirkjanm/PKINITtools/blob/master/getnthash.py
