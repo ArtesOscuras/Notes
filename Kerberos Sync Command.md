@@ -9,4 +9,4 @@ You can recognize this problem when you see "KRB_AP_ERR_SKEW"
 ### Mac OS:
 `sudo sntp -sS <dc ip>`
 
-'<your kerberos sync command here> ; <next command against kerberos here>`
+`<your kerberos sync command here> ; <next command against kerberos here>`
