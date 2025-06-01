@@ -6,5 +6,5 @@ You can recognize this problem when you see "KRB_AP_ERR_SKEW"
 `sudo rdate -n <dc ip>`
 `sudo ntpdate <dc ip>`
 
-### MAC OS:
+### Mac OS:
 `sudo sntp -sS <dc ip>`
