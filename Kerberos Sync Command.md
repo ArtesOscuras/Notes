@@ -9,4 +9,5 @@ You can recognize this problem when you see "KRB_AP_ERR_SKEW"
 ### Mac OS:
 `sudo sntp -sS <dc ip>`
 
-`<your kerberos sync command here> ; <next command against kerberos here>`
+### Example
+`sudo rdate -n 10.10.11.100 ; nxc ldap 10.10.11.100 -u 'john.smith' -p 'superpass123' --kerberoasting outputfile`
