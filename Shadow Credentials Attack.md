@@ -2,7 +2,7 @@ With shadow credentials attack you can get the NT hash from a target user. Then 
 Requirements are rights enought to write in msDS-KeyCredentialLink and PKINIT enable in kerberos.
 Check bloodhound sudgestions to know if this attack vector is available in your case.
 
-ABUSING SHADOW CREDENTIALS FROM OUTSIDE (from linux):
+# ABUSING SHADOW CREDENTIALS FROM OUTSIDE (from linux):
 ____________________________________________________
 
 
