@@ -15,4 +15,4 @@ In case you have access, and permisions inside powershell session you can includ
 `Set-ADServiceAccount -Identity <user controlled by gMSA Passwords> -PrincipalsAllowedToRetrieveManagedPassword <user you control>`
 
 
-Then try to retrive passwords again with gMSADumper.py.
+Then try to retrive passwords again with gMSADumper.py or netexec.
