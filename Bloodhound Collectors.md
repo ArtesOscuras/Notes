@@ -1,6 +1,5 @@
 # Bloodhound Collectors:
-### Recomended:
-If you have access inside machine upload and run sharphoun.exe. Download the zip data, and use it to ingest Bloodhound.
+### Recomended -> If you have access inside machine upload and run sharphoun.exe. Download the zip data, and use it to ingest Bloodhound.
 
 <br>
 
