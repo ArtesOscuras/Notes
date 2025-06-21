@@ -2,7 +2,9 @@
 
 Find users controled by gMSA Passwords (externaly from your machine), it also check users who can revel the passwords.
 
-`gMSADumper.py -u <user you control> -p <password> -d <domain>` or `nxc ldap <ip> -u <user you control> -p <password> --gmsa`
+`gMSADumper.py -u <user you control> -p <password> -d <domain>` 
+<br>
+`nxc ldap <ip> -u <user you control> -p <password> --gmsa`
 
 
 If you have access to a internal powershell session (evil-winrm, for example) you can also check this information for a particular user:
