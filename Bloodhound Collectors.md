@@ -10,4 +10,8 @@ In case you don't have access to the machine, or you want to take the data from 
 
 `nxc ldap <ip> -u <user> -p <passwd> --bloodhound --collection All -d <domain> --dns-server <dc-ip>`
 
+Additionaly there is a third important tool to mention, but I didn't test it by myself yet:
+
+https://github.com/g0h4n/RustHound-CE
+
 Priority should be first use an user who have maximum visibility of the domain resources. If all of them have same visibility, extract data from inside using sharphound.exe
