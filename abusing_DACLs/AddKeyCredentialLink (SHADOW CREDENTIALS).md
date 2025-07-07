@@ -70,7 +70,9 @@ ____________________________________________________
 ### Articles:
 
 https://www.hackingarticles.in/shadow-credentials-attack/
+
 https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/shadow-credentials
+
 https://bloodhound.specterops.io/resources/edges/add-key-credential-link
 
 
