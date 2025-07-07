@@ -5,7 +5,7 @@ Check bloodhound sudgestions to know if this attack vector is available in your 
 ### What, when and who:
 The Shadow Credentials attack was discovered and presented in 2022 by Elad Shamir and Michael Grafnetter. They revealed the technique during a security research talk, showcasing how attackers can abuse the msDS-KeyCredentialLink attribute to achieve stealthy persistence in Active Directory environments using certificate-based authentication.
 
-# ABUSING SHADOW CREDENTIALS FROM OUTSIDE (from linux):
+# Abusing SHADOW CREDENTIALS from Linux (externally):
 ____________________________________________________
 
 
@@ -42,7 +42,7 @@ ____________________________________________________
 
 <br>
 
-# ABUSING SHADOW CREDENTIALS FROM INSIDE (windows abuse):
+# Abusing SHADOW CREDENTIALS from Windows (internally):
 ______________________________________________________
 
 
