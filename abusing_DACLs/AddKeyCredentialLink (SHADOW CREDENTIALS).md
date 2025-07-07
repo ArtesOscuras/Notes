@@ -1,15 +1,17 @@
+# Abusing AddKeyCredentialLink (SHADOW CREDENTIALS)
+
 With shadow credentials attack you can get the NT hash from a target user. Then use it for pass-the-hash.
 Requirements are rights enought to write in msDS-KeyCredentialLink and PKINIT enable in kerberos.
 Check bloodhound sudgestions to know if this attack vector is available in your case.
 
-### What, when and who:
+#### What, when and who:
 The Shadow Credentials attack was discovered and presented in 2022 by Elad Shamir and Michael Grafnetter. They revealed the technique during a security research talk, showcasing how attackers can abuse the msDS-KeyCredentialLink attribute to achieve stealthy persistence in Active Directory environments using certificate-based authentication.
 
-# Abusing SHADOW CREDENTIALS from Linux (externally):
+### From Linux (externally, RECOMMENDED):
 ____________________________________________________
 
 
-### SHADOW CREDENTIALS ATTACK (with certipy, RECOMENDED):
+#### With Certipy, (RECOMMENDED):
 
  * REQUIREMENTS: Get certipy (or certipy-ad in kali) AND UPDATE IT to the last version -> https://github.com/ly4k/Certipy/wiki/04-%E2%80%90-Installation
 
@@ -20,7 +22,7 @@ ____________________________________________________
 ` < kerberos sync clock command > ; certipy shadow auto -u <user you control>@<domain> -hashes :<your user NT hash here> -account <target user> `
 
 
-### SHADOW CREDENTIALS ATTACK (with pywisker):
+#### With pywisker:
 
  * REQUIREMENTS: Get pywhisker, "gettgtpkinit.py" and "getnthash.py" from this repositoris:
    
@@ -42,11 +44,11 @@ ____________________________________________________
 
 <br>
 
-# Abusing SHADOW CREDENTIALS from Windows (internally):
+### Abusing SHADOW CREDENTIALS from Windows (internally):
 ______________________________________________________
 
 
-### SHADOW CREDENTIALS ATTACK (with whisker.exe):
+#### With whisker.exe:
 
  Upload Whisker.exe to the target machine and execute:
   ` ./Whisker.exe add /target:<target user> `
