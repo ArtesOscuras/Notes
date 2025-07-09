@@ -17,4 +17,5 @@ You can recognize this problem when you see "KRB_AP_ERR_SKEW".
 IMPORTAN NOTE: When operating from a VM, will automaticly sync again with the host unles you change internal settings.
 
 Virtual Box -> `"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" setextradata "<your machine name>" "VBoxInternal/Devices/VMMDev/0/Config/GetHostTimeDisabled" "1"`
+
 VM Ware -> Modify .vmx file.
