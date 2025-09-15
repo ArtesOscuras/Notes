@@ -1,3 +1,5 @@
-This part is under construction. You will find interesting information in this source:
+This part is under construction.
+
+Interesting articles for the moment:
 
 https://www.hackingarticles.in/abusing-ad-dacl-writeowner/
