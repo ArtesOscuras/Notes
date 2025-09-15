@@ -44,7 +44,7 @@ Source: https://www.thehacker.recipes/ad/movement/dacl/logon-script
 
 You can change user password remotly and then use it to connect via winrm, rdp etc...
 
-Check Force Change Password seccion -> 
+Check Force Change Password seccion -> https://github.com/ArtesOscuras/Notes/blob/main/abusing_DACLs/ForceChangePassword.md
 
 
 <br>
