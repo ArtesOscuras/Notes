@@ -73,7 +73,7 @@ Check Force Change Password seccion -> https://github.com/ArtesOscuras/Notes/blo
 
 # Abusing GenericAll (User over Group)
 
-Technically if an user have GenericAll over a grup can move user inside that group and change group properties.
+Technically if an user have GenericAll over a grup can move user into that group and change group properties.
 
 ### Set an user inside that group:
 #### (externally, from attacking machine)
