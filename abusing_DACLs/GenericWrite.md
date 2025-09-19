@@ -1,7 +1,12 @@
 # Abusing GenericWrite (User over User)
 
-If an user have GenericWrite over an user can get user hash and change user properties, this properties include change logon script wich allows for RCE if user connects.
+If an user have GenericWrite over an user can get user nthash, kerberoast hash and change user properties, this properties include change logon script wich allows for RCE if user connects.
 
+### Shadow credentials attack (get NThash):
+
+Check Shadow credentials seccion -> https://github.com/ArtesOscuras/Notes/blob/main/abusing_DACLs/AddKeyCredentialLink%20(SHADOW%20CREDENTIALS).md
+
+<br>
 
 ### Target kerberoast (get kerberoast hash):
 
