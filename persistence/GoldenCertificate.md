@@ -10,7 +10,7 @@ Check specific storage:
 
 `certutil -store root` (or any store)
 
-You will see multiple certificates. If any of those have `Signature test passed` and don't say anything about `Private key is NOT exportable`, like this example:
+You will see multiple certificates. If any of those have  ⚠️ `Signature test passed`⚠️  and don't say anything about `Private key is NOT exportable`, like this example:
 
 ```
 ================ Certificate 8 ================
