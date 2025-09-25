@@ -12,13 +12,13 @@ Check specific storage:
 
 You will see multiple certificates. If any of those have `Signature test passed` and don't say anything about `Private key is NOT exportable`, like this example:
 
-`
+```
 ================ Certificate 8 ================
 Serial Number: 75b2f4bbf31f108945147b466131bdca
 Issuer: CN=Certificate-LTD-CA, DC=certificate, DC=htb
  NotBefore: 11/3/2024 3:55 PM
- NotAfter: 11/3/2034 4:05 PM
-Subject: CN=Certificate-LTD-CA, DC=certificate, DC=htb
+  NotAfter: 11/3/2034 4:05 PM
+ Subject: CN=Certificate-LTD-CA, DC=certificate, DC=htb
 Certificate Template Name (Certificate Type): CA
 CA Version: V0.0
 Signature matches Public Key
@@ -31,7 +31,7 @@ No key provider information
   Unique container name: 26b68cbdfcd6f5e467996e3f3810f3ca_7989b711-2e3f-4107-9aae-fb8df2e3b958
   ERROR: missing key association property: CERT_KEY_IDENTIFIER_PROP_ID
 Signature test passed
-`
+```
 
 Then you may export this certificate:
 
