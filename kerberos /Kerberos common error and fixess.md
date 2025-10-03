@@ -55,3 +55,7 @@ Your credentials are probably correct, but time sincronization between your mach
 Most probably because you are using IP direcction to set the target. Use 'machine.domain' format (Example: `nxc smb DC01.testlab.com -u '' -p '' -k`) to set your target in whatever tool you are using. Make sure to edit your `/etc/hosts` file to link that 'machine.domain' to specific IP address.
 
 <br>
+
+### KRB_AP_ERR_TKT_EXPIRED
+
+The ticket you are using is too old. Try again with fresh user.ccname ticket.
