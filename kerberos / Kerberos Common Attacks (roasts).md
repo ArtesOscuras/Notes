@@ -9,6 +9,16 @@ Netexec -> `nxc ldap <ip/machine.domain> -u <users list> -p '' --asreproast <out
 
 <br>
 
+# AsreQroast
+
+Theoreticaly allows you to extract user hash from a .pcap file if contains an AS_REQ message (I didn't test it). More information can be found here:
+
+https://www.thehacker.recipes/ad/movement/kerberos/asreqroast
+
+https://github.com/lgandx/PCredz
+
+<br>
+
 # Kerberoast
 
 An offline attack that targets Active Directory service accounts with a registered SPN. An attacker requests a service ticket (TGS) for the SPN, extracts the ticket’s encrypted service-ticket blob (encrypted with the service account’s key derived from its password), and performs offline cracking against that blob to recover the account’s plaintext password or key.
