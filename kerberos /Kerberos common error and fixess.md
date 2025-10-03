@@ -40,7 +40,7 @@ Account is not enabled, or log in as that account is not allowed (even if your p
 
 ### KDC_ERR_ETYPE_NOSUPP
 
-Cypher type unsuported. Other reason could be that user my have additional restrictions to log in.
+Cypher type unsuported. Other reason could be that user my have additional restrictions to log in (http://go.microsoft.com/fwlink/?LinkId=298939).
 
 <br>
 
