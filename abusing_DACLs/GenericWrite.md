@@ -26,7 +26,7 @@ Kerberos Authentication:
 
 `export KRB5CCNAME=<file.ccache>`
 
-`targetedKerberoast.py -v -d '<domain>' -u '<user>' -p '<password>' -k --dc-host <machine.domain>`
+`targetedKerberoast.py -v -d '<domain>' -u '<user>' -k --no-pass --dc-host <machine.domain>`
 
 Note: If clock error appears "KRB_AP_ERR_SKEW" use kerberos sync command before.
 
