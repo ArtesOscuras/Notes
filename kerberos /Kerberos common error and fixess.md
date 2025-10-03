@@ -46,4 +46,12 @@ Cypher type unsuported. Other reason could be that user my have additional restr
 
 ### KRB_AP_ERR_SKEW
 
-Your credentials are probably correct, but time sincronization between your machine and target machine is not correct. If after sync the time with target machine this problems still occur most probably is because your attaking machine is resincronizing the time again with host (if it is a VM), or any other internal process that resincs time with real times. Use `date`to check your actual time machine.
+Your credentials are probably correct, but time sincronization between your machine and target machine is not correct (check the top of this document). If after sync the time with target machine this problems still occur most probably is because your attaking machine is resincronizing the time again with host (if it is a VM), or any other internal process that resincs time with real times. Use `date`to check your actual time machine.
+
+<br>
+
+### KDC_ERR_WRONG_REALM
+
+Most probably because you are using IP direcction to set the target. Use 'machine.domain' format (Example: `nxc smb DC01.testlab.com -u '' -p ''`) to set your target in whatever tool you are using. Make sure to edit your `/etc/hosts` file to link that 'machine.domain' to specific IP address.
+
+<br>
