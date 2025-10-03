@@ -33,7 +33,7 @@ Netexec -> `nxc ldap <ip/machine.domain> -u <users list> -p <password/ -H hash> 
 
 # Timeroast
 
-Timeroast is an Active Directory attack technique that targets Kerberos authentication by extracting service tickets (TGS) for accounts with Service Principal Names (SPNs). These tickets are encrypted with the service account’s NT hash, which the attacker can capture and crack offline using brute force or dictionary attacks. The goal is to recover the service account’s password, which often has high privileges and rarely changes.
+Timeroast is an Active Directory attack technique that targets Kerberos authentication by extracting service tickets (TGS) for accounts with Service Principal Names (SPNs). Normally machine accounts. These tickets are encrypted with the service account’s NT hash, which the attacker can capture and crack offline using brute force or dictionary attacks. The goal is to recover the service account’s password, which often has high privileges and rarely changes.
 
 Example:
 
