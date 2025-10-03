@@ -52,6 +52,6 @@ Your credentials are probably correct, but time sincronization between your mach
 
 ### KDC_ERR_WRONG_REALM
 
-Most probably because you are using IP direcction to set the target. Use 'machine.domain' format (Example: `nxc smb DC01.testlab.com -u '' -p ''`) to set your target in whatever tool you are using. Make sure to edit your `/etc/hosts` file to link that 'machine.domain' to specific IP address.
+Most probably because you are using IP direcction to set the target. Use 'machine.domain' format (Example: `nxc smb DC01.testlab.com -u '' -p '' -k`) to set your target in whatever tool you are using. Make sure to edit your `/etc/hosts` file to link that 'machine.domain' to specific IP address.
 
 <br>
