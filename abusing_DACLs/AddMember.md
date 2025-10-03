@@ -1,9 +1,9 @@
 
 # Abusing AddMember
 
-## Addiding member
-
 If an user have AddMember over a group can add itself inside the group, add other users inside this group, or even remove users. This can be done with multiple tools.
+
+## Addiding member
 
 ### From Linux (enternally recomended):
 
