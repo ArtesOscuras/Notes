@@ -46,6 +46,41 @@ example:
 
 `evil-winrm -i DC01.megacorp.htb -r megacorp.htb`
 
+<br>
+
+# Impacket-tools
+
+Tools like psexec, wmiexec, smbclient, mssqlclient... comming from impacket suite have the same login approach when managing credentials.
+
+`<impacket-tool> <domain>/<user>:'<password>'@<ip>`
+
+`<impacket-tool> <domain>/<user>:@<ip> -hashes '<hash LM, optional>:<hash NT>'`
+
+If you are using ZSH shell, it is very important to use simple cuotes `'` for passwords which contains simbols.
+
+Additionally, if NTLM authentications are disabled, you can still authenticate through kerberos. Impacket framework already takes the tickets by itself, and just need few adjustments. Make sure your computer date and time are syncronized with kerversos server, use `-k` flag and use `<machine name>.<domain>` format instead of IP.
+
+`sudo rdate -n <kerberos server ip>`
+
+`<impacket-tool> <domain>/<user>:'<password>'@<machine>.<domain> -k`
+
+`<impacket-tool> <domain>/<user>:@<machine>.<domain> -hashes '<hash LM, optional>:<hash NT>' -k`
+
+Example:
+
+KALI: `impacket-wmiexec megacorp.com/john.smith:'Superpass123!'@DC01.megacorp.com -k`
+
+UBUNTU: `wmiexec.py megacorp.com/john.smith:'Superpass123!'@DC01.megacorp.com -k`
+
+
+
+
+
+
+
+
+
+
 
 
 
