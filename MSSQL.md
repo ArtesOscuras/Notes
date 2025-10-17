@@ -44,7 +44,9 @@ For NTLM relay look for "responder" and "ntlmrelayx" functionalitys.
 
 ### Database enumeration:
 
-Get all database: `EXEC sp_databases;` or `SELECT name FROM sys.databases;`
+You can also make simple direct querys to enumerate the machine, users and sql process to get information:
+
+Get all database: `EXEC sp_databases;` or `SELECT name FROM sys.databases;` "master", "tempdb", "model", "msdb" databases are coming from default.
 
 Use specific database: `USE <database name>;`
 
