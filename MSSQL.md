@@ -75,7 +75,7 @@ SELECT * FROM sys.dm_exec_connections;
 
 SELECT * FROM sys.dm_exec_requests;       -- SQL process
 
-
+sp_configure "show advanced options", 1 -- Show configuration options
 ```
 
 <br>
@@ -124,13 +124,6 @@ SQL >"DC02.darkzero.ext" (dc01_sql_svc  dbo@master)>
 ```
 
 
-
-
-
-
-
-
-
 <br>
 
 Other interesting articles: https://one2bla.me/Breach-operations/attacking-mssql
@@ -140,4 +133,4 @@ Other interesting articles: https://one2bla.me/Breach-operations/attacking-mssql
 Recomended labs to practice:
 - Darkzero (Hackthebox)
 - Signed (Hackthebox)
-- Querier (Hackthebox)
+- Querier (Hackthebox) https://www.youtube.com/watch?v=hfzYnjBzW_k
