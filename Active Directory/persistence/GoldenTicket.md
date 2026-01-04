@@ -1,7 +1,7 @@
 # Golden ticket
 
 ### Externally from your attacker machine
-You can create persistence to the domain stealing the krbtgt nt account hash. Once you have it, you can create your own kerberos tickets to get acces to the machine as any user you want. You just need one one important requirement -> krbtgt nt hash. You can get this hash normally with Netexec or secretsdump, if you have enought privileges. Normally after privilege escalation (thats why is a persistence method). In case you get his hash in a context of non privileged user, of course you can use it to escalate. 
+You can create persistence to the domain stealing the krbtgt nt account hash. Once you have it, you can create your own kerberos tickets to get acces to the machine as any user you want.  ⚠️ `You just need one one important requirement -> krbtgt nt hash`⚠️. You can get this hash normally with Netexec or secretsdump, if you have enought privileges. Normally after privilege escalation (thats why is a persistence method). In case you get his hash in a context of non privileged user, of course you can use it to escalate. 
 
 Ingredients:
 - krbtgt ht account hash (from ntds. Use nxc or secretsdump to get it)
