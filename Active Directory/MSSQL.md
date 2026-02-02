@@ -69,8 +69,16 @@ SELECT SERVERPROPERTY('Edition');      -- Edition (Express, Standard, etc.)
 SELECT SERVERPROPERTY('InstanceName'); -- Instance name
 SELECT SERVERPROPERTY('ProductLevel'); -- Patch level
 
-SELECT name, type_desc FROM sys.server_principals;   -- Server users
-SELECT name, type_desc FROM sys.database_principals; -- Database users
+SELECT name,type_desc FROM sys.server_principals WHERE type='S'; -- Sql logins (server-level users and roles)
+SELECT name,type_desc FROM sys.server_principals WHERE type='R'; -- server roles
+SELECT name,type_desc FROM sys.server_principals WHERE type='U'; -- windows logins (windows users, domain or local)
+SELECT name,type_desc FROM sys.server_principals WHERE type='G'; -- windows groups
+SELECT name,type_desc FROM sys.server_principals; -- see all users (server and windows, no database)
+
+SELECT name,type_desc,authentication_type_desc FROM sys.database_principals; -- all database users from actual DB, and roles.
+SELECT permission_name, state_desc FROM sys.database_permissions WHERE grantee_principal_id = USER_ID('guest'); -- see user permisions
+
+SELECT dp.name AS database_user FROM sys.database_principals dp LEFT JOIN sys.server_principals sp ON dp.sid=sp.sid WHERE dp.type IN ('S','U') AND sp.name IS NULL; -- orphen users (db user without login in server)
 
 SELECT * FROM sys.dm_exec_sessions;       -- Active sessions and connections
 SELECT * FROM sys.dm_exec_connections;
@@ -78,6 +86,9 @@ SELECT * FROM sys.dm_exec_connections;
 SELECT * FROM sys.dm_exec_requests;       -- SQL process
 
 sp_configure "show advanced options", 1 -- Show configuration options
+
+Detect users (or groups) with critical privileges over SQL Server:
+SELECT m.name AS principal_name, m.type_desc, r.name AS server_role FROM sys.server_role_members rm JOIN sys.server_principals r ON rm.role_principal_id=r.principal_id JOIN sys.server_principals m ON rm.member_principal_id=m.principal_id WHERE m.type_desc IN ('WINDOWS_LOGIN','WINDOWS_GROUP') ORDER BY r.name;
 ```
 
 <br>
