@@ -94,6 +94,12 @@ sp_configure "show advanced options", 1 -- Show configuration options
 
 Detect users (or groups) with critical privileges over SQL Server:
 SELECT m.name AS principal_name, m.type_desc, r.name AS server_role FROM sys.server_role_members rm JOIN sys.server_principals r ON rm.role_principal_id=r.principal_id JOIN sys.server_principals m ON rm.member_principal_id=m.principal_id WHERE m.type_desc IN ('WINDOWS_LOGIN','WINDOWS_GROUP') ORDER BY r.name;
+
+
+Navigate through files:
+master.sys.xp_dirtree 'c:\',1,1 -- change directory to see the files and folders.
+SELECT * FROM OPENROWSET(BULK 'C:\archivo.txt', SINGLE_CLOB) a; -- see content of text file
+
 ```
 
 <br>
