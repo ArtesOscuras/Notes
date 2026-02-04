@@ -1,6 +1,6 @@
 # Microsoft SQL service (port 1433)
 
-If the Domain controller or any other windows machine have accessible Microsoft SQL service through the standar port 1433, or any custom port accessible, you can use a domain user credentials (or local user credentials) to login. In some cases this can lead to RCE through "xp_cmdshell" function, ntlm authentication relay through "xp_dirtree" function or get the NTLM v2 hash from the user running the service, enumerate databases, arbitrary querys, and migrate to other computers if are connected through "links".
+If the Domain controller or any other windows machine have accessible Microsoft SQL service through the standar port 1433, or any custom port accessible, you can use a domain user credentials, local user credentials, or even database user credentials, to login. In some cases this can lead to RCE through "xp_cmdshell" function, ntlm authentication relay through "xp_dirtree" function or get the NTLM v2 hash from the user running the service, enumerate databases, arbitrary querys, and migrate to other computers if are connected through "links". If the user compromised is linked to an SPN you could get extra writes which may allow you to read sensitive data, that you user should not be able to read, via -> OPENROWSET(BULK…) functions.
 
 You can login into the service using mssqlclient.py from impacket suite:
 
