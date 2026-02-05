@@ -204,6 +204,18 @@ https://medium.com/@Tvrpism/how-does-the-silver-ticket-actually-work-368ec8905ed
 
 <br>
 
+Injections and interesting querys:
+
+https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/MSSQL%20Injection.md
+
+<br>
+
+Bulk insert / openrowset querys (Dangerous querys):
+
+https://learn.microsoft.com/en-us/sql/relational-databases/import-export/import-bulk-data-by-using-bulk-insert-or-openrowset-bulk-sql-server?view=sql-server-ver15
+
+<br>
+
 Recomended labs to practice:
 - Darkzero (Hackthebox)
 - Signed (Hackthebox)
