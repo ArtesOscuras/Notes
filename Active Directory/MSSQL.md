@@ -210,7 +210,7 @@ https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/
 
 <br>
 
-Bulk insert / openrowset querys (Dangerous querys):
+BULK INSERT / OPENROWSET BULK querys (Dangerous querys):
 
 https://learn.microsoft.com/en-us/sql/relational-databases/import-export/import-bulk-data-by-using-bulk-insert-or-openrowset-bulk-sql-server?view=sql-server-ver15
 
