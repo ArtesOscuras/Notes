@@ -8,9 +8,11 @@ In case you don't have access to the machine, or you want to take the data from 
 
 `bloodhound-ce-python -c All -ns <ip> -d <domain> --zip -u <user you control> -p <password>`
 
-(bloodhound-python for legacy edition)
+(use bloodhound-python for legacy edition)
 
 `nxc ldap <ip> -u <user> -p <passwd> --bloodhound --collection All -d <domain> --dns-server <dc-ip>`
+
+<br>
 
 Additionaly there is a third important tool to mention, but I didn't test it by myself yet:
 
